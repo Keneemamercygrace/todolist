@@ -1,0 +1,21 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}To DO List{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lobster+Two&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{%endblock%}
+{% block content %}
+<div class="jumbotron text-center">
+<div class="container">
+    <h1 class="display-4">TO DO LIST</h1>
+    <img src="https://s26162.pcdn.co/wp-content/uploads/2019/07/writing.jpg"><br>
+    <a class="btn btn-warning btn-lg" role="button" href="{{url_for('todo')}}">Create New</a><a class="btn btn-warning btn-lg" role="button" href="{{url_for('my_to_dos')}}">My To Dos</a><br>
+    <a class="btn btn-warning btn-lg" role="button" href="{{url_for('completed')}}">🏆 Completed 🏆</a>
+
+</div>
+</div>
+{%endblock%}

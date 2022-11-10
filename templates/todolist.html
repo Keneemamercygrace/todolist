@@ -1,0 +1,46 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}To DO List{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lobster+Two&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{%endblock%}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>MY TO-DO LIST</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date To Be Completed</th>
+                    <th scope="col">Time To Be Completed</th>
+                    <th scope="col">Completed Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for to in todos%}
+                <tr>
+                    <th scope="row">{{to.Title }}</th>
+                    <td>{{to.Description }}</td>
+                    <td>{{to.Date}}</td>
+                    <td>{{to.Time}}</td>
+                    <td>{{to.Completed}}</td>
+                    <td><a class="edit" href="{{url_for('edit', id=to.id)}}">Edit</a></td>
+                </tr>
+                {%endfor%}
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+{%endblock%}
